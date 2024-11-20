@@ -1,5 +1,7 @@
 import math
 import numpy
+import time
+units = "units"
 def sideA():
     pTHypLForA = float(input("Enter length of hypotenuse.\n"))
     pTBL = float(input("Enter length of side B.\n"))
@@ -97,11 +99,40 @@ def gcfLcmF():
     lcm = numpy.lcm(num1, num2)
     print("The GCF is " + str(gcf))
     print("The LCM is " + str(lcm))
+def speedFunction():
+    speedUnit = input("Enter what speed you would like to convert. m/s to km/h, km/h to m/s, km/h to miles/h: ")
+    if speedUnit == "1":
+        mPerSToKmPerH = float(input("Enter m/s: "))
+        mPerSToKmPerHAnswer = mPerSToKmPerH * 3.6
+        print(str(mPerSToKmPerHAnswer) + "km/h")          
+    elif speedUnit == "2":
+        KmPerHToMPerS = float(input("Enter km/h: "))
+        KmPerHToMPerSAnswer = KmPerHToMPerS * 3.6
+        print(str(KmPerHToMPerSAnswer) + "m/s")
+def lengthFunction():  
+    whatDaHeck = input("Enter what units you would like to convert. \n 1. Km to Miles\n 2. Miles to Km\n 3. Cm to In\n 4. In to Cm ")
+    whatDaHeckStr = str(whatDaHeck)
+    if whatDaHeckStr == "1":
+        kmToMiles = float(input("Enter km: "))
+        kmToMilesAnswer = kmToMiles / 1.60934
+        print(str(kmToMilesAnswer) + "miles")
+    elif whatDaHeckStr == "2":
+        milesToKm = float(input("Enter miles: "))
+        milesToKmAnswer = milesToKm * 1.60934
+        print(str(MilesToKmAnswer) + "km") 
+    elif whatDaHeckStr == "3":
+        cmToIn = float(input("Enter cm: "))
+        cmToInAnswer = cmToIn / 2.54
+        print(str(cmToInAnswer) + "in")    
+    elif whatDaHeckStr == "4":
+        InToCm = float(input("Enter in: "))
+        InToCmAnswer = InToCm * 2.54
+        print(str(InToCmAnswer) + "cm")
 while 1 == 1:
     print("This programm calculates a number of different things including Perimeter, Area, Surface Area, Volume, and Pythagorean's Theorem of different objects.\n")
-    wUnits = input("What unit would you like to use. Example: cm.\n")
-    units = wUnits.lower()
-    wObjUse = input("Enter what you would like to use.\n1. Perimeter\n2. Area\n3. Surface Area\n4. Volume\n5. Pythagorean Theorem\n6. LCM / GCF\n")
+    """wUnits = input("What unit would you like to use. Example: cm.\n")
+    units = wUnits.lower()"""
+    wObjUse = input("Enter what you would like to use.\n1. Perimeter\n2. Area\n3. Surface Area\n4. Volume\n5. Pythagorean Theorem\n6. LCM / GCF\n7. Converter\n")
     wUse = wObjUse.lower()
     if wUse == "perimeter" or wUse == "1":
         perimiterF()
@@ -115,5 +146,15 @@ while 1 == 1:
         pythagoreanF()
     elif wUse == "6":
         gcfLcmF()
+    elif wUse == "7":
+        types = input("Would you like to convert speed or length? ")
+        typesStr = str(types)
+        if typesStr == "speed":
+            speedFunction()
+        elif typesStr == "length":
+            lengthFunction()
+    elif wUse == "exit":
+        print("Goodbye!")
+        break
 
             
